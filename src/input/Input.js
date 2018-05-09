@@ -84,15 +84,15 @@ class Input extends Component {
           ]}
         >
           {leftIcon && (
-            <View
-              style={[
-                styles.iconContainer,
-                { marginLeft: 15 },
-                leftIconContainerStyle,
-              ]}
-            >
-              {renderNode(Icon, leftIcon)}
-            </View>
+             <View
+               style={[
+                 styles.iconContainer,
+                 { marginLeft: 15 },
+                 leftIconContainerStyle,
+               ]}
+               >
+               {renderNode(Icon, leftIcon)}
+             </View>
           )}
           <TextInput
             {...attributes}
@@ -101,15 +101,15 @@ class Input extends Component {
             style={[styles.input, inputStyle]}
           />
           {rightIcon && (
-            <View style={[styles.iconContainer, rightIconContainerStyle]}>
-              {renderNode(Icon, rightIcon)}
-            </View>
+             <View style={[styles.iconContainer, rightIconContainerStyle]}>
+               {renderNode(Icon, rightIcon)}
+             </View>
           )}
         </Animated.View>
         {errorMessage && (
-          <Text style={[styles.error, errorStyle && errorStyle]}>
-            {errorMessage}
-          </Text>
+           <Text style={[styles.error, errorStyle && errorStyle]}>
+             {errorMessage}
+           </Text>
         )}
       </View>
     );
@@ -136,7 +136,7 @@ Input.propTypes = {
   labelStyle: Text.propTypes.style,
 };
 
-const styles = StyleSheet.create({
+const styleDefinitions = {
   inputContainer: {
     flexDirection: 'row',
     borderBottomWidth: 1,
@@ -168,11 +168,18 @@ const styles = StyleSheet.create({
       ios: {
         fontWeight: 'bold',
       },
+      web: {
+        fontWeight: 'bold',
+      },
       android: {
         ...fonts.android.bold,
       },
     }),
   },
-});
+}
+
+const styles = StyleSheet.create(styleDefinitions)
+
+Input.defaultStyles = styleDefinitions
 
 export default Input;
