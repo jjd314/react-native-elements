@@ -196,7 +196,7 @@ ButtonGroup.defaultProps = {
   selectMultiple: false,
   containerBorderRadius: 3,
   onPress: () => {},
-  component: Platform.OS === 'ios' ? TouchableOpacity : TouchableNativeFeedback,
+  component: Platform.OS !== 'android' ? TouchableOpacity : TouchableNativeFeedback,
 };
 
 export default ButtonGroup;
